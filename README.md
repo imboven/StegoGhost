@@ -1,157 +1,169 @@
-# 🔐 StegoGhost - Стеганографическое приложение
+# 🔐 StegoGhost – Steganographic Application
 
-## ✨ Особенности
+## ✨ Features
 
-- 🔒 **Безопасность** - AES-256 шифрование с защитой паролем
-- 🎯 **Продвинутая стеганография** - LSB с псевдослучайной выборкой пикселей
-- 📊 **Анализ вместимости** - Автоматический расчет максимального размера сообщения
-- 🖼️ **Поддержка форматов** - PNG, JPEG, WebP изображения
-- 💪 **Надежность** - Детерминированные алгоритмы для точного извлечения
+* 🔒 **Security** – AES-256 encryption with password protection
+* 🎯 **Advanced Steganography** – LSB with pseudo-random pixel distribution
+* 📊 **Capacity Analysis** – Automatically calculates maximum message size
+* 🖼️ **Format Support** – PNG, JPEG, WebP images
+* 💪 **Reliability** – Deterministic algorithms for accurate extraction
 
-## 🖥️ Интерфейс
+## 🖥️ Interface
 
-Приложение имеет два основных режима работы:
+The application provides two main operation modes:
 
-### 🔒 Скрытие сообщения
-- Выбор изображения-контейнера
-- Ввод секретного сообщения (до 4096 символов)
-- Установка надежного пароля
-- Автоматическое сохранение результата
+### 🔒 Hide Message
 
-### 🔓 Извлечение сообщения  
-- Загрузка изображения с скрытыми данными
-- Ввод пароля для расшифровки
-- Отображение извлеченного сообщения
+* Select a container image
+* Enter a secret message (up to 4096 characters)
+* Set a strong password
+* Save the resulting image automatically
 
-## 🚀 Установка
+### 🔓 Extract Message
 
-### Требования
-- Python 3.8 или выше
-- Windows (основная поддержка)
+* Upload an image with hidden data
+* Enter the password to decrypt
+* Display the extracted message
 
-### Установка зависимостей
+## 🚀 Installation
+
+### Requirements
+
+* Python 3.8 or higher
+* Windows (primary support)
+
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Зависимости
-- **Pillow** - Обработка изображений
-- **cryptography** - Криптографические функции
-- **PyQt5** - Графический интерфейс
-- **numpy** - Численные вычисления
-- **psutil** - Системная информация
+### Dependencies
 
-## 🎯 Использование
+* **Pillow** – Image processing
+* **cryptography** – Cryptographic functions
+* **PyQt5** – GUI framework
+* **numpy** – Numerical computing
+* **psutil** – System info
 
-### Запуск приложения
+## 🎯 Usage
+
+### Run the application
 
 ```bash
 python main.py
 ```
 
-### Скрытие сообщения
+### Hiding a message
 
-1. Откройте вкладку "🔒 Скрыть сообщение"
-2. Нажмите "Обзор..." и выберите изображение
-3. Введите ваше секретное сообщение
-4. Установите надежный пароль
-5. Нажмите "🔐 Скрыть и сохранить"
-6. Выберите место для сохранения результата
+1. Open the "🔒 Hide Message" tab
+2. Click "Browse..." and select an image
+3. Enter your secret message
+4. Set a strong password
+5. Click "🔐 Hide and Save"
+6. Choose a location to save the result
 
-### Извлечение сообщения
+### Extracting a message
 
-1. Откройте вкладку "🔓 Извлечь сообщение"
-2. Выберите изображение с скрытыми данными
-3. Введите правильный пароль
-4. Нажмите "🔓 Извлечь сообщение"
-5. Прочитайте извлеченное сообщение
+1. Open the "🔓 Extract Message" tab
+2. Select the image containing hidden data
+3. Enter the correct password
+4. Click "🔓 Extract Message"
+5. Read the extracted message
 
-## 🔧 Технические детали
+## 🔧 Technical Details
 
-### Алгоритм стеганографии
-- **Метод**: LSB (Least Significant Bit) в красном канале
-- **Распределение**: Псевдослучайная выборка пикселей на основе пароля
-- **Заголовок**: 4-байтовый заголовок для хранения длины данных
+### Steganography Algorithm
 
-### Криптография
-- **Шифрование**: AES-256 в режиме CBC
-- **Ключ**: Производный от пароля через PBKDF2
-- **Соль**: Случайная 16-байтовая соль для каждого сообщения
+* **Method**: LSB (Least Significant Bit) in the red channel
+* **Distribution**: Pseudo-random pixel selection based on the password
+* **Header**: 4-byte header to store encrypted data length
 
-### Формат данных
+### Cryptography
+
+* **Encryption**: AES-256 in CBC mode
+* **Key**: Derived from password using PBKDF2
+* **Salt**: Random 16-byte salt for each message
+
+### Data Format
+
 ```
-[4 байта - длина] [зашифрованные данные]
+[4 bytes - length] [encrypted data]
 ```
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 stegomouse/
-├── main.py              # Точка входа приложения
-├── gui.py               # Графический интерфейс (PyQt5)
-├── stego_engine.py      # Стеганографический движок
-├── crypto_module.py     # Криптографические функции
+├── main.py              # Application entry point  
+├── gui.py               # GUI (PyQt5)  
+├── stego_engine.py      # Steganographic engine  
+├── crypto_module.py     # Cryptographic functions
 
-├── build.py             # Скрипт сборки
-├── requirements.txt     # Python зависимости
-├── .gitignore          # Исключения Git
-├── README.md           # Документация
-└── CHANGELOG.md        # История изменений
+├── build.py             # Build script  
+├── requirements.txt     # Python dependencies  
+├── .gitignore           # Git ignore rules  
+├── README.md            # Documentation  
+└── CHANGELOG.md         # Changelog
 ```
 
-## 🛠️ Сборка исполняемого файла
+## 🛠️ Building Executable
 
-Для создания .exe файла используйте:
+To generate a `.exe` file:
 
 ```bash
 python build.py
 ```
 
-Результат будет в папке `dist/`.
+The result will be placed in the `dist/` folder.
 
-## 🔒 Безопасность
+## 🔒 Security
 
-### Рекомендации по паролям
-- Используйте длинные пароли (12+ символов)
-- Включайте буквы, цифры и спецсимволы
-- Не используйте словарные слова
+### Password Recommendations
 
-### Ограничения
-- Максимальный размер сообщения: 4096 символов
-- Поддерживаемые форматы: PNG, JPEG, WebP
-- Рекомендуется PNG для лучшего качества
+* Use long passwords (12+ characters)
+* Include letters, numbers, and special characters
+* Avoid dictionary words
 
-## ⚠️ Важные замечания
+### Limitations
 
-- **Формат выходного файла**: Всегда PNG для сохранения качества
-- **Исходное изображение**: Не изменяется, создается новая копия
-- **Производительность**: Время обработки зависит от размера изображения
-- **Совместимость**: Основная поддержка Windows
+* Maximum message size: 4096 characters
+* Supported formats: PNG, JPEG, WebP
+* PNG is recommended for best quality
 
-## 🐛 Решение проблем
+## ⚠️ Notes
 
-### Ошибки шифрования
-- Проверьте правильность пароля
-- Убедитесь, что изображение содержит скрытые данные
+* **Output format**: Always saved as PNG for quality preservation
+* **Original image**: Remains unchanged, a new copy is created
+* **Performance**: Depends on image size
+* **Compatibility**: Main support for Windows
 
-### Проблемы с форматами
-- Используйте PNG для лучшей совместимости
-- Избегайте сильно сжатых JPEG изображений
+## 🐛 Troubleshooting
 
-## 📄 Лицензия
+### Encryption Errors
 
-Этот проект распространяется под лицензией MIT. См. файл LICENSE для подробностей.
+* Check if the correct password was entered
+* Ensure the image contains hidden data
 
-## 🤝 Вклад в проект
+### Format Issues
 
-Приветствуются предложения по улучшению! Пожалуйста:
+* Use PNG for better compatibility
+* Avoid highly compressed JPEGs
 
-1. Создайте форк проекта
-2. Создайте ветку для ваших изменений
-3. Внесите изменения и протестируйте их
-4. Создайте Pull Request
+## 📄 License
 
-## 📞 Поддержка
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Если у вас возникли вопросы или проблемы, создайте Issue в репозитории.
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a new branch for your changes
+3. Implement and test your modifications
+4. Submit a Pull Request
+
+## 📞 Support
+
+For questions or suggestions, feel free to open an issue or contact the maintainer.
+
